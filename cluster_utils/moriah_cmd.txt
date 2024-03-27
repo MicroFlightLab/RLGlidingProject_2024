@@ -1,0 +1,19 @@
+# activate environment
+source /cs/labs/tsevi/yoavflato/gliding_venv/bin/activate.csh
+
+# run sbatch
+module load torch
+sbatch /cs/labs/tsevi/yoavflato/GlidingProject/sbatchs/run.sbatch 1 # parameter is for hyperparameter file
+sbatch /cs/labs/tsevi/yoavflato/GlidingProject/sbatchs/seed_run.sbatch 1 3 # parameter 1 is for hyperparameter file, parameter 2 is for number of runs
+sbatch /cs/labs/tsevi/yoavflato/GlidingProject/sbatchs/sweep_run.sbatch 1 # run sweep
+
+# To run couple of runs
+change hyperparameters in the code
+change sbatch for the right hyperparameter file
+
+# creating virtual environment
+virtualenv /cs/labs/tsevi/yoavflato/gliding_venv --python python3 --system-site-packages
+pip install -e gym-glider
+
+# cancel all my jobs
+squeue -u $USER | grep JOB_NUMBER | awk '{print $1}' | xargs -n 1 scancel

@@ -1,0 +1,6 @@
+setup.py
+gym_glider.egg-info/PKG-INFO
+gym_glider.egg-info/SOURCES.txt
+gym_glider.egg-info/dependency_links.txt
+gym_glider.egg-info/requires.txt
+gym_glider.egg-info/top_level.txt
